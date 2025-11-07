@@ -7,6 +7,11 @@ public class BankAccountDriver {
         out.println("test");
 
 
+        BankAccount acct1 = new BankAccount(35); 
+        
+        out.println(acct1.getBalance());
+
+
         // BankAccount[] accounts = new BankAccount[100];
 
         // accounts[0] = new Savings(1100, .05);
