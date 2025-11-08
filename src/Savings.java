@@ -1,7 +1,6 @@
 package src;
 
 import static java.lang.System.*;
-import shared.Helper;
 
 public class Savings extends BankAccount {
 
@@ -22,12 +21,13 @@ public class Savings extends BankAccount {
         out.println("\n-------------- add interest method");
         out.println("The  balance is \t\t: " + this.getBalance());
         this.setBalance(this.getBalance() * (1 + intRate));
-        out.println("The current balance is \t\t: " + this.getBalance() + "\n--------------");
+        out.println("The current balance is \t\t: " + this.getBalance());
+        out.println("\n-------------------------------------------");
     }
 
     public void display() {
-        out.println("Savings Account");
-        out.println("Account Balance \t\t: " + Helper.formatTwoDecimals(getBalance()));
+        String accountType = "Savings";
+        super.infoBuilder(accountType);
 
     }
 
