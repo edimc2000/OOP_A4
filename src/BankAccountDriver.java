@@ -16,10 +16,7 @@ public class BankAccountDriver {
             switch (args[0]) {
 
                 case "savings":
-                    out.println("case 1");
-                    Savings account1 = new Savings(100, 0.05); 
-                    account1.setName("Eddie Cabangon");
-                    account1.display();
+                    savingsTest();
                     break;
                 default:
 
@@ -58,7 +55,21 @@ public class BankAccountDriver {
     }
 
     public static void savingsTest() {
+        out.println("case Savings Test with transactions ");
+        Savings account1 = new Savings(100, 0.05);
+        account1.setName("Eddie Cabangon");
 
+        account1.display();
+
+        account1.addTransaction("deposit", "2025-10-01", 500);
+        account1.addTransaction("deposit", "2025-10-02", 300);
+        account1.addTransaction("withdrawal", "2025-10-02", 50);
+        account1.addTransaction("withdrawal", "2025-10-02", 1000);
+        account1.addTransaction("deposit", "2025-10-03", 500);
+        
+
+        account1.displayTransactions();
+        account1.display();
     }
 }
 

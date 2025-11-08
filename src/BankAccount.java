@@ -2,16 +2,15 @@ package src;
 
 import static java.lang.System.*;
 
+import java.util.ArrayList;
+
 import shared.Helper;
 
 public abstract class BankAccount {
 
     private double balance = 0;
     private String accountName;
-
-    String[] transactions;
-    double[] amounts;
-    double[] transactionBalances;
+    private ArrayList<Transaction> transactions = new ArrayList<>();
 
     public BankAccount(double balance) {
         this.balance = balance < 0 ? 0 : balance;
@@ -38,15 +37,33 @@ public abstract class BankAccount {
         this.balance += amount;
     }
 
-    public void deposit(double amount, boolean showDetail) {
-        out.println("\n-------------- DEPOSIT");
-        out.println("The  balance is \t\t: " + this.balance);
-        out.println("Depositing \t\t\t: " + amount + "\n");
+    public void addTransaction(String transaction, String date, double amount) {
+        switch (transaction) {
+            case "deposit":
+                this.deposit(amount);
+                break;
+            case "withdrawal":
+                this.withdraw(amount);
+                break;
+        }
 
-        this.balance += amount;
+        transactions.add(new Transaction(transaction, date, amount, getBalance()));
+    }
 
-        out.println("The current balance is  \t: " + this.balance);
-        out.println("\n-------------------------------------------");
+    // Helper method to display all transactions
+    public void displayTransactions() {
+        out.println(String.format("%-15s %-20s %-20s %-20s\n",
+                "Date", "Transaction", "Amount", "Running Balance"));
+
+        for (Transaction lineItem : transactions) {
+            String transactionType = lineItem.getType().substring(0, 1).toUpperCase() +
+                    lineItem.getType().substring(1);
+            out.println(String.format("%-15s %-20s $ %-18.2f $ %-20.2f",
+                    lineItem.getDate(),
+                    transactionType,
+                    lineItem.getAmount(),
+                    lineItem.getBalanceAfter()));
+        }
     }
 
     public void withdraw(double amount) {
@@ -54,18 +71,6 @@ public abstract class BankAccount {
         this.balance -= amount;
         this.balance = this.balance < 0 ? 0 : this.balance;
 
-    }
-
-    public void withdraw(double amount, boolean showDetail) {
-        out.println("\n-------------- WITHDRAWAL");
-        out.println("The  balance is \t\t: " + this.balance);
-        out.println("Withdrawing \t\t\t: " + amount + "\n");
-
-        this.balance -= amount;
-        this.balance = this.balance < 0 ? 0 : this.balance;
-
-        out.println("The current balance is  \t: " + this.balance);
-        out.println("\n-------------------------------------------");
     }
 
     public void infoBuilder(String accountType) {
