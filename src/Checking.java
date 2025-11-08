@@ -9,10 +9,14 @@ public class Checking extends BankAccount {
 
   public Checking(double balance) {
     super(balance);
-
   }
 
   public void writeACheck(double amount) {
+    setBalance(getBalance() - amount - Checking.serviceFee);
+
+  }
+
+  public void writeACheck(double amount, boolean showDetail) {
     out.println("Checking Account");
     out.println("\n-------------- check amount " + amount);
     setBalance(getBalance() - amount - Checking.serviceFee);

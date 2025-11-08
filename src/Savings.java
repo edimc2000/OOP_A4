@@ -12,12 +12,22 @@ public class Savings extends BankAccount {
 
     }
 
+    public Savings(String name, double balance, double interestRate) {
+        super(balance);
+        setIntRate(interestRate);
+        setName("Kristhia Bernard");
+
+    }
+
     public void setIntRate(double interestRate) {
         this.intRate = interestRate;
     }
 
-    // interest amount
     public void addInterest() {
+        this.setBalance(this.getBalance() * (1 + intRate));
+    }
+
+    public void addInterest(int test) {
         out.println("\n-------------- add interest method");
         out.println("The  balance is \t\t: " + this.getBalance());
         this.setBalance(this.getBalance() * (1 + intRate));
@@ -28,7 +38,6 @@ public class Savings extends BankAccount {
     public void display() {
         String accountType = "Savings";
         super.infoBuilder(accountType);
-
     }
 
 }
