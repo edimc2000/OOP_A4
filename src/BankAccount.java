@@ -40,6 +40,7 @@ public abstract class BankAccount {
         out.println("Withdrawing \t\t\t: " + amount + "\n");
 
         this.balance -= amount;
+        if (this.balance < 0) this.balance = 0; 
 
         out.println("The current balance is  \t: " + this.balance + "\n--------------");
     }

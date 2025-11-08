@@ -17,10 +17,10 @@ public class BankAccountDriver {
         // accounts[1] = new Checking(-100);
         // accounts[1].deposit(50);
 
-        accounts[2] = new Checking(2000);
-        // accounts[2] = new Checking(200);
-        accounts[2].withdraw(100);
-        // accounts[2].deposit(100);
+        
+        accounts[2] = new Checking(200);
+        accounts[2].withdraw(2000);
+        accounts[2].deposit(100);
         ((Checking) accounts[2]).writeACheck(50);
 
         for (int i = 0; i < accounts.length && accounts[i] != null; i++) {
