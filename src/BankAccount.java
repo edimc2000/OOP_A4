@@ -1,6 +1,6 @@
 import static java.lang.System.*;
 
- public abstract class BankAccount {
+public abstract class BankAccount {
 
     public BankAccount() {
 
@@ -21,22 +21,25 @@ import static java.lang.System.*;
         this.balance = amount;
     }
 
-    public void deposit (double amount) {
-        out.println("The current balance is \t:" + this.balance);
-        out.println("Depositing \t:" + amount + "\n");
+    public void deposit(double amount) {
+        out.println("\n-------------- DEPOSIT");
+        out.println("The  balance is \t\t: " + this.balance);
+        out.println("Depositing \t\t\t: " + amount + "\n");
 
         this.balance += amount;
 
-        out.println("The current balance is  \t:" + this.balance + "\n");
+        out.println("The current balance is  \t: " + this.balance + "\n--------------");
+    }
 
     public void withdraw(double amount) {
-        out.println("The current balance is \t:" + this.balance);
-        out.println("Withdrawing\t:" + amount + "\n");
+        out.println("\n-------------- WITHDRAWAL");
+        out.println("The  balance is \t\t: " + this.balance);
+        out.println("Withdrawing \t\t\t: " + amount + "\n");
 
         this.balance -= amount;
 
-        out.println("The current balance is  \t:" + this.balance + "\n");
+        out.println("The current balance is  \t: " + this.balance + "\n--------------");
     }
 
-    public abstract void display() ; 
+    public abstract void display();
 }

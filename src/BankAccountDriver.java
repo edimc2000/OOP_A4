@@ -3,21 +3,13 @@ import static java.lang.System.*;
 public class BankAccountDriver {
     public static void main(String[] args) {
 
-        out.println("test");
-
-        BankAccount acct1 = new BankAccount(35);
-
-        out.println(acct1.getBalance());
-
-        // out.println("DEBUG args 0 => "+ args[0] );
         out.println("DEBUG: args length = " + (args != null ? args.length : "null"));
-        
-        
-        // BankAccount[] accounts = new BankAccount[100];
 
-        // accounts[0] = new Savings(1100, .05);
-        // accounts[0].deposit(100);
-        // accounts[0].withdraw(200);
+        BankAccount[] accounts = new BankAccount[100];
+
+        accounts[0] = new Savings(1100, .05);
+        accounts[0].deposit(100);
+        accounts[0].withdraw(200);
         // ((Savings) accounts[0]).addInterest();
 
         // accounts[1] = new Checking(-100);
@@ -28,9 +20,9 @@ public class BankAccountDriver {
         // accounts[2].deposit(100);
         // ((Checking) accounts[2]).writeACheck(50);
 
-        // for (int i = 0; i < accounts.length && accounts[i] != null; i++) {
-        // accounts[i].display();
-        // }
+        for (int i = 0; i < accounts.length && accounts[i] != null; i++) {
+            accounts[i].display();
+        }
     }
 
 }
