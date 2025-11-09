@@ -151,14 +151,14 @@ public abstract class BankAccount {
         out.println(String.format("%-15s %-20s %11s %8s %s",
                 " Date", "Transaction", "Amount", "", "Running Balance"));
         out.println(String.format(" %-14s %-21s %10s %3s %s",
-                "----------", "-----------", "---------------", "", "---------------"));
+                "-".repeat(10), "-".repeat(11), "-".repeat(15), "", "-".repeat(15)));
         for (Transaction lineItem : listOfTransactions) {
             out.println(lineItem);
         }
         out.println("\n");
     }
 
-    
+
     /**
      * Builds account information string
      * 
