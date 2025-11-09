@@ -1,4 +1,5 @@
 package shared;
+
 import static java.lang.System.*;
 
 /**
@@ -42,14 +43,28 @@ public class Helper {
         return String.format("$ %,.2f", decimal);
     }
 
-     /**
-     * Clears the console screen using ANSI escape codes.
+    /**
+     * Clears the console screen using the OS' terminal command.
      * This method works on most Unix-based terminals and Windows Command Prompt
      * with ANSI support enabled.
      */
     public static void clearScreen() {
-        out.print("\033[H\033[2J");
-        out.flush();
+ 
+        try {
+            final String os = System.getProperty("os.name");
+
+            if (os.contains("Windows")) {
+                new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+            } else {
+                new ProcessBuilder("clear").inheritIO().start().waitFor();
+            }
+        } catch (final Exception e) {
+            // Handle any exceptions, such as IOException or InterruptedException
+            e.printStackTrace();
+            out.print("\033[H\033[2J");
+            out.flush();
+        }
+
     }
 
 }
