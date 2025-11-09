@@ -40,14 +40,14 @@ public class Transaction {
                 type.toLowerCase().equals("svc charge")
                         ? String.format(ColorStyle.BRIGHT_RED + "CR %10s" +
                                 ColorStyle.RESET_FORMATTING,
-                                Helper.formatCurrency(getAmount(), 10))
+                                Helper.formatCurrency(getAmount(), 13))
                         : String.format(ColorStyle.BRIGHT_CYAN + "DR %10s" +
                                 ColorStyle.RESET_FORMATTING,
-                                Helper.formatCurrency(getAmount(), 10));
+                                Helper.formatCurrency(getAmount(), 13));
 
-        String balanceStr = String.format("$%,13.2f", balanceAfter);
+        String balanceStr = Helper.formatCurrency(getBalanceAfter(), 13);
 
-        return String.format(" %-14s %-21s %8s %3s %8s",
+        return String.format(" %-14s %-18s %8s %3s %8s",
                 date,
                 type,
                 amountStr,
