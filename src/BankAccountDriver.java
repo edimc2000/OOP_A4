@@ -111,11 +111,13 @@ public class BankAccountDriver {
 
         account1.addTransaction("opening", "2025-09-30", account1.getBalance());
         account1.addTransaction("deposit", "2025-10-01", 100);
-        // account1.addTransaction("check", "2025-10-02", account1.writeACheck(100));
+        
         account1.writeACheck(20, "2025-10-02");
+        
         account1.addTransaction("withdrawal", "2025-10-25", 1500);
-        account1.addTransaction("deposit", "2025-10-30", 100);
-        // account1.addTransaction("check", "2025-10-31", account1.writeACheck(10));
+        account1.addTransaction("deposit", "2025-10-30", 10000);
+        
+        account1.writeACheck(20, "2025-10-02");
 
         account1.display();
         account1.displayTransactions();

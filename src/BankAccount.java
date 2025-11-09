@@ -72,8 +72,8 @@ public abstract class BankAccount {
     public void displayTransactions() {
         out.println(String.format("%-15s %-20s %11s %8s %s",
                 " Date", "Transaction", "Amount", "", "Running Balance"));
-        out.println(String.format(" %-15s%-20s%12s%10s%s",
-                "----", "-----------", "------", "", "---------------"));
+        out.println(String.format(" %-15s%-22s%12s%5s%s",
+                "----------", "-----------", "---------------", "", "---------------"));
         for (Transaction lineItem : transactions) {
             out.println(lineItem);
         }

@@ -46,7 +46,7 @@ public class Transaction {
 
         String balanceStr = String.format("$%,13.2f", balanceAfter);
 
-        return String.format(" %-15s %-20s %8s %5s %8s",
+        return String.format(" %-15s%-20s  %8s %3s %8s",
                 date,
                 type,
                 amountStr,

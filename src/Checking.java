@@ -12,9 +12,8 @@ public class Checking extends BankAccount {
   }
 
   public double writeACheck(double amount, String date) {
-    // setBalance(getBalance() - amount - Checking.serviceFee);
-    this.addTransaction("check", "date", amount);
-    this.addTransaction("svc charge", "date", Checking.serviceFee);
+    this.addTransaction("check", date, amount);
+    this.addTransaction("svc charge", date, Checking.serviceFee);
     return amount + 1 ;
   }
 
