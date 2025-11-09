@@ -15,7 +15,7 @@ public class Savings extends BankAccount {
     public Savings(String name, double balance, double interestRate) {
         super(balance);
         setIntRate(interestRate);
-        setName("Kristhia Bernard");
+        setName(name);
 
     }
 

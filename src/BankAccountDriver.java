@@ -113,8 +113,9 @@ public class BankAccountDriver {
         account1.addTransaction("deposit", "2025-10-01", 100);
         
         account1.writeACheck(20, "2025-10-02");
+        account1.writeACheck(2000, "2025-10-02");
         
-        account1.addTransaction("withdrawal", "2025-10-25", 1500);
+        // account1.addTransaction("withdrawal", "2025-10-25", 1500);
         account1.addTransaction("deposit", "2025-10-30", 10000);
         
         account1.writeACheck(20, "2025-10-02");
