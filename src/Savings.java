@@ -15,7 +15,7 @@ public class Savings extends BankAccount {
     /**
      * Constructs savings account with balance and interest rate.
      * 
-     * @param balance the starting balance
+     * @param balance      the starting balance
      * @param interestRate the annual interest rate
      */
     public Savings(double balance, double interestRate) {
@@ -26,8 +26,8 @@ public class Savings extends BankAccount {
     /**
      * Constructs named savings account with balance and interest rate.
      * 
-     * @param name the account holder name
-     * @param balance the starting balance
+     * @param name         the account holder name
+     * @param balance      the starting balance
      * @param interestRate the annual interest rate
      */
     public Savings(String name, double balance, double interestRate) {

@@ -71,7 +71,7 @@ public abstract class BankAccount {
      * @return list of transactions
      */
     public ArrayList<Transaction> getTransactions() {
-        return transactions;
+        return this.transactions;
     }
 
     /**
