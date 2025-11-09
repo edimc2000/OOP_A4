@@ -11,18 +11,15 @@ public class Checking extends BankAccount {
     super(balance);
   }
 
-  public void writeACheck(double amount) {
-    setBalance(getBalance() - amount - Checking.serviceFee);
-
+  public double writeACheck(double amount, String date) {
+    // setBalance(getBalance() - amount - Checking.serviceFee);
+    this.addTransaction("check", "date", amount);
+    this.addTransaction("svc charge", "date", Checking.serviceFee);
+    return amount + 1 ;
   }
 
-  public void writeACheck(double amount, boolean showDetail) {
-    out.println("Checking Account");
-    out.println("\n-------------- check amount " + amount);
+  public void writeACheck(double amount) {
     setBalance(getBalance() - amount - Checking.serviceFee);
-    out.println("Account Balance \t\t: " + Helper.formatTwoDecimals(getBalance()));
-    out.println("\n-------------------------------------------");
-
   }
 
   public void display() {

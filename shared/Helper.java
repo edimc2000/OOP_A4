@@ -1,5 +1,5 @@
 package shared;
-
+import static java.lang.System.*;
 
 /**
  * Helper.java
@@ -39,7 +39,17 @@ public class Helper {
      *          formatTwoDecimals(999999.9994);
      */
     public static String formatTwoDecimals(double decimal) {
-        return String.format("$%,.2f", decimal);
+        return String.format("$ %,.2f", decimal);
+    }
+
+     /**
+     * Clears the console screen using ANSI escape codes.
+     * This method works on most Unix-based terminals and Windows Command Prompt
+     * with ANSI support enabled.
+     */
+    public static void clearScreen() {
+        out.print("\033[H\033[2J");
+        out.flush();
     }
 
 }

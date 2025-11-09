@@ -3,6 +3,8 @@ package src;
 import static java.lang.System.*;
 import java.util.Arrays;
 
+import shared.Helper;
+
 public class BankAccountDriver {
     public static void main(String[] args) {
         if (args.length == 0) {
@@ -18,7 +20,17 @@ public class BankAccountDriver {
                 case "savings":
                     savingsTest();
                     break;
+
+                case "interest":
+                    savingsWithInterest();
+                    break;
+
+                case "check":
+                    checkTest();
+                    break;
+
                 default:
+                    out.println("invalid parameter");
 
             }
         }
@@ -32,6 +44,7 @@ public class BankAccountDriver {
 
     public static void NoArgs() {
         // below are from the material - sample out put
+        Helper.clearScreen();
         BankAccount[] accounts = new BankAccount[100];
 
         accounts[0] = new Savings(1100, .05);
@@ -55,29 +68,57 @@ public class BankAccountDriver {
     }
 
     public static void savingsTest() {
-        out.println("case Savings Test with transactions ");
+        Helper.clearScreen();
+        out.println("Test Case: Savings with transactions ");
         Savings account1 = new Savings(100, 0.05);
-        account1.setName("Eddie Cabangon");
+        account1.setName("Melissa Gibbs");
 
-        account1.display();
+        account1.addTransaction("opening", "2025-10-01", account1.getBalance());
 
-        account1.addTransaction("deposit", "2025-10-01", 500);
+        account1.addTransaction("deposit", "2025-10-01", 50);
         account1.addTransaction("deposit", "2025-10-02", 300);
         account1.addTransaction("withdrawal", "2025-10-02", 50);
         account1.addTransaction("withdrawal", "2025-10-02", 1000);
         account1.addTransaction("deposit", "2025-10-03", 500);
-        
 
-        account1.displayTransactions();
         account1.display();
+        account1.displayTransactions();
+
+    }
+
+    public static void savingsWithInterest() {
+        Helper.clearScreen();
+        out.println("Test Case: Savings with Interest ");
+        Savings account1 = new Savings(600, 0.05);
+        account1.setName("Janno Gibbs");
+
+        account1.addTransaction("opening", "2025-09-30", account1.getBalance());
+        account1.addTransaction("deposit", "2025-10-01", 100);
+
+        account1.addTransaction("interest", "2025-11-02", account1.interestAmount());
+        account1.addTransaction("withdrawal", "2025-11-05", 25);
+
+        account1.display();
+        account1.displayTransactions();
+
+    }
+
+    public static void checkTest() {
+        Helper.clearScreen();
+        out.println("Test Case: Checking account with transactions  ");
+        Checking account1 = new Checking(1000);
+        account1.setName("Janno Gibbs");
+
+        account1.addTransaction("opening", "2025-09-30", account1.getBalance());
+        account1.addTransaction("deposit", "2025-10-01", 100);
+        // account1.addTransaction("check", "2025-10-02", account1.writeACheck(100));
+        account1.writeACheck(20, "2025-10-02");
+        account1.addTransaction("withdrawal", "2025-10-25", 1500);
+        account1.addTransaction("deposit", "2025-10-30", 100);
+        // account1.addTransaction("check", "2025-10-31", account1.writeACheck(10));
+
+        account1.display();
+        account1.displayTransactions();
+
     }
 }
-
-/**
- * accounts[3] = new Checking(200);
- * accounts[3].withdraw(2000);
- * accounts[3].deposit(100);
- * ((Checking) accounts[3]).writeACheck(50);
- * 
- * accounts[3].setName("Eddie");
- */

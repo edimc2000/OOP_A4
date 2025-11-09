@@ -1,6 +1,6 @@
 package src;
 
-import static java.lang.System.*;
+
 
 public class Savings extends BankAccount {
 
@@ -27,13 +27,11 @@ public class Savings extends BankAccount {
         this.setBalance(this.getBalance() * (1 + intRate));
     }
 
-    public void addInterest(int test) {
-        out.println("\n-------------- add interest method");
-        out.println("The  balance is \t\t: " + this.getBalance());
-        this.setBalance(this.getBalance() * (1 + intRate));
-        out.println("The current balance is \t\t: " + this.getBalance());
-        out.println("\n-------------------------------------------");
+
+   public double interestAmount() {
+        return this.getBalance() *  intRate;
     }
+
 
     public void display() {
         String accountType = "Savings";

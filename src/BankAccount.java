@@ -37,40 +37,47 @@ public abstract class BankAccount {
         this.balance += amount;
     }
 
-    public void addTransaction(String transaction, String date, double amount) {
-        switch (transaction) {
+    public void withdraw(double amount) {
+
+        this.balance -= amount;
+        this.balance = this.balance < 0 ? 0 : this.balance;
+    }
+
+    public void addTransaction(String transactionType, String date, double amount) {
+        switch (transactionType) {
+            case "opening":
+                break;
+            case "interest":
+                this.deposit(amount);
+                break;
             case "deposit":
                 this.deposit(amount);
                 break;
             case "withdrawal":
                 this.withdraw(amount);
                 break;
+            case "check":
+                this.withdraw(amount);
+                break;
+            case "svc charge":
+                this.withdraw(amount);
+                break;
         }
-
-        transactions.add(new Transaction(transaction, date, amount, getBalance()));
+        transactionType = transactionType.substring(0, 1).toUpperCase() +
+                transactionType.substring(1);
+        transactions.add(new Transaction(transactionType, date, amount, getBalance()));
     }
 
     // Helper method to display all transactions
     public void displayTransactions() {
-        out.println(String.format("%-15s %-20s %-20s %-20s\n",
-                "Date", "Transaction", "Amount", "Running Balance"));
-
+        out.println(String.format("%-15s %-20s %11s %8s %s",
+                " Date", "Transaction", "Amount", "", "Running Balance"));
+        out.println(String.format(" %-15s%-20s%12s%10s%s",
+                "----", "-----------", "------", "", "---------------"));
         for (Transaction lineItem : transactions) {
-            String transactionType = lineItem.getType().substring(0, 1).toUpperCase() +
-                    lineItem.getType().substring(1);
-            out.println(String.format("%-15s %-20s $ %-18.2f $ %-20.2f",
-                    lineItem.getDate(),
-                    transactionType,
-                    lineItem.getAmount(),
-                    lineItem.getBalanceAfter()));
+            out.println(lineItem);
         }
-    }
-
-    public void withdraw(double amount) {
-
-        this.balance -= amount;
-        this.balance = this.balance < 0 ? 0 : this.balance;
-
+        out.println("\n");
     }
 
     public void infoBuilder(String accountType) {
@@ -87,6 +94,7 @@ public abstract class BankAccount {
                 : String.format(showNameTemplate, accountType, balance);
 
         out.println(info);
+
     }
 
     public abstract void display();
