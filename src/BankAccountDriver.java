@@ -6,14 +6,17 @@ import java.util.Arrays;
 import shared.Helper;
 
 public class BankAccountDriver {
+    public static boolean isClearScreen = false;
+
     public static void main(String[] args) {
+
         if (args.length == 0) {
             NoArgs();
         }
 
         if (args != null && args.length != 0) {
             out.println("DEBUG: args [0] = " + args[0]);
-            out.println("DEBUG:  args => " + Arrays.toString(args));
+            out.println("DEBUG: args => " + Arrays.toString(args));
 
             switch (args[0]) {
 
@@ -43,8 +46,10 @@ public class BankAccountDriver {
     }
 
     public static void NoArgs() {
+
+        if (isClearScreen == true)
+            Helper.clearScreen();
         // below are from the material - sample out put
-        Helper.clearScreen();
         BankAccount[] accounts = new BankAccount[100];
 
         accounts[0] = new Savings(1100, .05);
@@ -68,7 +73,10 @@ public class BankAccountDriver {
     }
 
     public static void savingsTest() {
-        Helper.clearScreen();
+                if (isClearScreen == true)
+            Helper.clearScreen();
+
+
         out.println("Test Case: Savings with transactions ");
         Savings account1 = new Savings(100, 0.05);
         account1.setName("Melissa Gibbs");
@@ -82,12 +90,15 @@ public class BankAccountDriver {
         account1.addTransaction("deposit", "2025-10-03", 500);
 
         account1.display();
-        account1.displayTransactions();
+        BankAccount.displayTransactions(account1.getTransactions());
 
     }
 
     public static void savingsWithInterest() {
-        Helper.clearScreen();
+                if (isClearScreen == true)
+            Helper.clearScreen();
+
+
         out.println("Test Case: Savings with Interest ");
         Savings account1 = new Savings(600, 0.05);
         account1.setName("Janno Gibbs");
@@ -99,29 +110,32 @@ public class BankAccountDriver {
         account1.addTransaction("withdrawal", "2025-11-05", 25);
 
         account1.display();
-        account1.displayTransactions();
+        BankAccount.displayTransactions(account1.getTransactions());
 
     }
 
     public static void checkTest() {
-        Helper.clearScreen();
+              if (isClearScreen == true)
+            Helper.clearScreen();
+
+
         out.println("Test Case: Checking account with transactions  ");
         Checking account1 = new Checking(1000);
         account1.setName("Janno Gibbs");
 
         account1.addTransaction("opening", "2025-09-30", account1.getBalance());
         account1.addTransaction("deposit", "2025-10-01", 100);
-        
+
         account1.writeACheck(20, "2025-10-02");
         account1.writeACheck(2000, "2025-10-02");
-        
+
         // account1.addTransaction("withdrawal", "2025-10-25", 1500);
         account1.addTransaction("deposit", "2025-10-30", 10000);
-        
+
         account1.writeACheck(20, "2025-10-02");
 
         account1.display();
-        account1.displayTransactions();
+        BankAccount.displayTransactions(account1.getTransactions());
 
     }
 }

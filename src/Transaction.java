@@ -1,6 +1,7 @@
 package src;
 
 import shared.ColorStyle;
+import shared.Helper;
 
 public class Transaction {
     private String type;
@@ -37,16 +38,16 @@ public class Transaction {
         String amountStr = type.toLowerCase().equals("withdrawal") ||
                 type.toLowerCase().equals("check") ||
                 type.toLowerCase().equals("svc charge")
-                        ? String.format(ColorStyle.BRIGHT_RED + "CR $ %,10.2f" +
+                        ? String.format(ColorStyle.BRIGHT_RED + "CR %10s" +
                                 ColorStyle.RESET_FORMATTING,
-                                Math.abs(amount))
-                        : String.format(ColorStyle.BRIGHT_CYAN + "DR $ %,10.2f" +
+                                Helper.formatCurrency(getAmount(), 10))
+                        : String.format(ColorStyle.BRIGHT_CYAN + "DR %10s" +
                                 ColorStyle.RESET_FORMATTING,
-                                amount);
+                                Helper.formatCurrency(getAmount(), 10));
 
         String balanceStr = String.format("$%,13.2f", balanceAfter);
 
-        return String.format(" %-15s%-20s  %8s %3s %8s",
+        return String.format(" %-14s %-21s %8s %3s %8s",
                 date,
                 type,
                 amountStr,

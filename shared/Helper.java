@@ -11,7 +11,7 @@ import static java.lang.System.*;
  * cursor control, color application, and section display utilities.
  * 
  * @author Eddie C.
- * @version 1.6
+ * @version 1.8
  * @since 2025-10-24
  */
 
@@ -40,7 +40,40 @@ public class Helper {
      *          formatTwoDecimals(999999.9994);
      */
     public static String formatTwoDecimals(double decimal) {
-        return String.format("$ %,.2f", decimal);
+        return String.format("%,.2f", decimal);
+    }
+
+    /** This javadoc was generate with AI Assistance - Deepseek. 
+     * Formats a decimal number as currency with two decimal places, grouping
+     * separators, and a dollar sign prefix. The formatting follows the default
+     * locale's rules for number formatting.
+     *
+     * @param decimal the decimal number to be formatted as currency
+     * @param spaces  the minimum number of characters for the integer portion,
+     *                including grouping separators. If the actual number requires
+     *                more space, it will expand beyond this minimum.
+     * @return a formatted currency string with dollar sign, grouping separators,
+     *         and two decimal places
+     * 
+     * @example
+     *          // Returns "$ 1,234.56" (with 7 spaces for integer portion)
+     *          formatCurrency(1234.56789, 7);
+     * 
+     * @example
+     *          // Returns "$ 0.00" (with 8 spaces for integer portion)
+     *          formatCurrency(0.0, 8);
+     * 
+     * @example
+     *          // Returns "$ 999,999.99" (with 2 spaces, but expands for larger
+     *          number)
+     *          formatCurrency(999999.9994, 2);
+     * 
+     * @example
+     *          // Returns "$ -123.45" (with 7 spaces for negative number)
+     *          formatCurrency(-123.456, 7);
+     */
+    public static String formatCurrency(double decimal, int spaces) {
+        return String.format("$ %," + spaces + ".2f", decimal);
     }
 
     /**
@@ -49,7 +82,7 @@ public class Helper {
      * with ANSI support enabled.
      */
     public static void clearScreen() {
- 
+
         try {
             final String os = System.getProperty("os.name");
 

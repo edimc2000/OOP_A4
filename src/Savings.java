@@ -35,7 +35,7 @@ public class Savings extends BankAccount {
 
     public void display() {
         String accountType = "Savings";
-        super.infoBuilder(accountType);
+        this.infoBuilder(accountType);
     }
 
 }

@@ -20,7 +20,7 @@ public class Checking extends BankAccount {
 
   public void display() {
     String accountType = "Checking";
-    super.infoBuilder(accountType);
+    this.infoBuilder(accountType);
 
   }
 }
