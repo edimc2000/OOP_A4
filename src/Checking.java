@@ -34,7 +34,7 @@ public class Checking extends BankAccount {
    */
   public void writeACheck(double amount) {
     this.addTransaction("check", getUnknownDate(), amount);
-    this.addTransaction("svc charge", getUnknownDate(), getServiceFee());
+    this.addTransaction("chk svc charge", getUnknownDate(), getServiceFee());
   }
 
   /**
