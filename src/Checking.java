@@ -1,5 +1,7 @@
 package src;
 
+import static java.lang.System.*;
+
 /**
  * Checking account with check writing and service fee functionality.
  * 
@@ -50,7 +52,7 @@ public class Checking extends BankAccount {
   /**
    * Gets the service fee amount.
    * 
-   * @return the unkown date format string 
+   * @return the unkown date format string
    */
   public static String getUnknownDate() {
     return UNKNOWN_DATE;
@@ -65,14 +67,12 @@ public class Checking extends BankAccount {
     return serviceFee;
   }
 
-
-
   /**
    * Displays checking account information.
    */
   @Override
   public void display() {
-    String accountType = "Checking";
-    this.infoBuilder(accountType);
+    this.setAccountType("Checking");
+    out.println(this);
   }
 }

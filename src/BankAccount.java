@@ -128,7 +128,7 @@ public abstract class BankAccount {
                 this.deposit(amount);
                 break;
             case "withdrawal":
-            case "check" :
+            case "check":
             case "chk svc charge":
                 this.withdraw(amount);
                 break;
@@ -154,15 +154,48 @@ public abstract class BankAccount {
         out.println("\n");
     }
 
+    /**
+     * Account type identifier (e.g., "Savings", "Checking")
+     */
+    private String accountType;
 
     /**
-     * Builds account information string
+     * Sets the account type.
      * 
-     * @param accountType the type of account
+     * @param accountType the type of account (e.g., "Savings", "Checking")
      */
-    public void infoBuilder(String accountType) {
+    public void setAccountType(String accountType) {
+        this.accountType = accountType;
+    }
+
+    /**
+     * Gets the account type.
+     * 
+     * @return the account type (e.g., "Savings", "Checking")
+     */
+    public String getAccountType() {
+        return this.accountType;
+    }
+
+    /**
+     * Returns formatted string representation of account information.
+     * Format includes account type, name (if present), and current balance.
+     * 
+     * @return formatted account information string
+     * 
+     * @example
+     * 
+     *          <pre>
+     * Savings Account 
+     *  Name    : John Doe
+     *  Balance : $1,000.00
+     *          </pre>
+     * 
+     */
+    @Override
+    public String toString() {
         String info;
-        accountType = accountType + " Account";
+        String accountType = getAccountType() + " Account";
 
         String showName = "Name\t\t: " + this.getName();
         String balance = "Balance\t: " + Helper.formatCurrency(getBalance(), 1);
@@ -173,7 +206,25 @@ public abstract class BankAccount {
                 ? String.format(showNameTemplate, accountType, showName, balance)
                 : String.format(showNameTemplate, accountType, balance);
 
-        out.println(info);
+        return info;
     }
 
+    /**
+     * Compares this bank account with another object for equality.
+     * Two accounts are equal if they are the same type and have the same balance.
+     * 
+     * @param obj the object to compare with
+     * @return true if the accounts have the same balance and type, false otherwise
+     */
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null || getClass() != obj.getClass())
+            return false;
+
+        BankAccount that = (BankAccount) obj;
+        return Double.compare(that.getBalance(), getBalance()) == 0;
+
+    }
 }

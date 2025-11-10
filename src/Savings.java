@@ -1,5 +1,7 @@
 package src;
 
+import static java.lang.System.*;
+
 /**
  * Savings account with interest rate functionality.
  * 
@@ -76,7 +78,7 @@ public class Savings extends BankAccount {
      */
     @Override
     public void display() {
-        String accountType = "Savings";
-        this.infoBuilder(accountType);
+        this.setAccountType("Savings");
+        out.println(this);
     }
 }
