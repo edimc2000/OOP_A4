@@ -55,7 +55,7 @@ public class BankAccountDriver {
     /** Runs sample tests from material. */
     public static void noArgs() {
         clearScreenIfNeeded();
-        int bankAccountSampleArrLen = 10;
+        int bankAccountSampleArrLen = 100;
 
         // below are from the material - sample output
         BankAccount[] accounts = new BankAccount[bankAccountSampleArrLen];
