@@ -1,22 +1,34 @@
 package src;
 
 import static java.lang.System.*;
-import java.util.Arrays;
-
 import shared.Helper;
 
+/**
+ * BankAccountDriver.java
+ * Test driver for banking system with multiple account types and transactions.
+ * 
+ * @author Eddie C.
+ * @version 1.0
+ * @since 2025-11-09
+ */
+
 public class BankAccountDriver {
+    /** Flag to control screen clearing behavior */
     public static boolean isClearScreen = false;
 
+    /**
+     * Main method to run banking system tests.
+     * 
+     * @param args command line arguments for test selection
+     */
     public static void main(String[] args) {
 
         if (args.length == 0) {
-            NoArgs();
+            noArgs();
         }
 
-        if (args != null && args.length != 0) {
-            out.println("DEBUG: args [0] = " + args[0]);
-            out.println("DEBUG: args => " + Arrays.toString(args));
+        if (args.length != 0) {
+            out.println("\n" + "_".repeat(100));
 
             switch (args[0]) {
 
@@ -29,7 +41,7 @@ public class BankAccountDriver {
                     break;
 
                 case "check":
-                    checkTest();
+                    checkTransactions();
                     break;
 
                 default:
@@ -38,19 +50,15 @@ public class BankAccountDriver {
             }
         }
 
-        if (args != null && args.length == 0) {
-            out.println("DEBUG: args length = " + args.length + " args => " + Arrays.toString(args));
-
-        }
-
     }
 
-    public static void NoArgs() {
+    /** Runs sample tests from material. */
+    public static void noArgs() {
+        clearScreenIfNeeded();
+        int bankAccountSampleArrLen = 10;
 
-        if (isClearScreen == true)
-            Helper.clearScreen();
-        // below are from the material - sample out put
-        BankAccount[] accounts = new BankAccount[100];
+        // below are from the material - sample output
+        BankAccount[] accounts = new BankAccount[bankAccountSampleArrLen];
 
         accounts[0] = new Savings(1100, .05);
         accounts[0].deposit(100);
@@ -72,10 +80,9 @@ public class BankAccountDriver {
 
     }
 
+    /** Tests savings account with multiple transactions. */
     public static void savingsTest() {
-                if (isClearScreen == true)
-            Helper.clearScreen();
-
+        clearScreenIfNeeded();
 
         out.println("Test Case: Savings with transactions ");
         Savings account1 = new Savings(100, 0.05);
@@ -94,10 +101,9 @@ public class BankAccountDriver {
 
     }
 
+    /** Tests savings account with interest calculations. */
     public static void savingsWithInterest() {
-                if (isClearScreen == true)
-            Helper.clearScreen();
-
+        clearScreenIfNeeded();
 
         out.println("Test Case: Savings with Interest ");
         Savings account1 = new Savings(600, 0.05);
@@ -114,11 +120,9 @@ public class BankAccountDriver {
 
     }
 
-    public static void checkTest() {
-              if (isClearScreen == true)
-            Helper.clearScreen();
-
-
+    /** Tests checking account with check writing functionality. */
+    public static void checkTransactions() {
+        clearScreenIfNeeded();
         out.println("Test Case: Checking account with transactions  ");
         Checking account1 = new Checking(1000);
         account1.setName("Janno Gibbs");
@@ -136,6 +140,12 @@ public class BankAccountDriver {
 
         account1.display();
         BankAccount.displayTransactions(account1.getTransactions());
+    }
 
+    /** Clears screen if enabled by isClearScreen flag. */
+    private static void clearScreenIfNeeded() {
+        if (isClearScreen) {
+            Helper.clearScreen();
+        }
     }
 }

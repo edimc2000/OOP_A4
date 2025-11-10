@@ -37,7 +37,7 @@ public class Transaction {
     public String toString() {
         String amountStr = type.toLowerCase().equals("withdrawal") ||
                 type.toLowerCase().equals("check") ||
-                type.toLowerCase().equals("svc charge")
+                type.toLowerCase().equals("chk svc charge")
                         ? String.format(ColorStyle.BRIGHT_RED + "CR %10s" +
                                 ColorStyle.RESET_FORMATTING,
                                 Helper.formatCurrency(getAmount(), 13))

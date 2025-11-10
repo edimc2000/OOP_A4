@@ -128,12 +128,8 @@ public abstract class BankAccount {
                 this.deposit(amount);
                 break;
             case "withdrawal":
-                this.withdraw(amount);
-                break;
-            case "check":
-                this.withdraw(amount);
-                break;
-            case "svc charge":
+            case "check" :
+            case "chk svc charge":
                 this.withdraw(amount);
                 break;
         }

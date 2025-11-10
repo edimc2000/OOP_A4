@@ -43,7 +43,7 @@ public class Checking extends BankAccount {
    */
   public double writeACheck(double amount, String date) {
     this.addTransaction("check", date, amount);
-    this.addTransaction("svc charge", date, getServiceFee());
+    this.addTransaction("chk svc charge", date, getServiceFee());
     return amount + getServiceFee();
   }
 

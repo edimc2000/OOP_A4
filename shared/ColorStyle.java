@@ -8,7 +8,7 @@ package shared;
  * Comments were AI assisted using Perplexity.
  * 
  * @author Eddie C.
- * @version 1.1
+ * @version 1.2
  * @since 2025-10-24
  */
 public class ColorStyle {
@@ -32,7 +32,6 @@ public class ColorStyle {
 
     /** Standard green foreground color */
     public static final String GREEN = "\u001B[32m";
-    
 
     /** Standard yellow foreground color */
     public static final String YELLOW = "\u001B[33m";
@@ -83,8 +82,6 @@ public class ColorStyle {
 
     /** Custom turquoise blue background color using RGB values (26, 132, 184) */
     public static final String TURQUOISE_BLUE_BG = "\u001B[48;2;26;132;184m";
-
-
 
     /** Bright white background color */
     public static final String BRIGHT_WHITE_BG = "\u001B[107m";
