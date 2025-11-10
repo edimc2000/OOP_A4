@@ -107,15 +107,6 @@ Screenshots of sample runs are available in the `screenshots/` folder.
 - No external libraries
 - ANSI-capable terminal (optional, for colors)
 
-## Contact / Next steps
-
-If you want any of the following improvements, I can implement them:
-
-- Unit tests (JUnit) for `BankAccount`, `Savings`, and `Checking`.
-- Interest accrual and scheduled operations for `Savings`.
-- Overdraft limits, fees, and configurable account settings for `Checking`.
-- A small README-runner script or build file (Ant/Maven/Gradle) if you prefer reproducible builds.
-
 ## Contact
 
 If you have questions or need further changes, reply here or refer to the course materials.
