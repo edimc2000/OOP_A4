@@ -81,7 +81,7 @@ Run all commands
 .\runme.cmd
 ```
 
-## Example session (representative)
+## Example session 
 
 - Create an account (checking or savings).
 - Deposit money.
