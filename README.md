@@ -10,8 +10,7 @@ This is a Java project used to demonstrate inheritance and polymorphism with a s
 - No external dependencies — only the Java Standard Library
 - Structure: top-level `src/` for core classes and `shared/` for helpers
 
-    ![Sample output with out arguments ](/screenshots/tree.png)
-
+  ![Sample output with out arguments ](/screenshots/tree.png)
 
 This repository includes an interactive driver that lets you create accounts and exercise account behavior via the console.
 
@@ -47,57 +46,60 @@ There is also a `screenshots/` folder included with example program output.
 
 From the project root (the folder that contains `src/` and `shared/`), run:
 
-Run the sample 
+Run the sample
+
 ```pwsh
-java .\src\BankAccountDriver.java 
+java .\src\BankAccountDriver.java
 ```
 
-Run the test for Savings Account with transaction listing 
+![Sample output with out arguments ](/screenshots/sample.png)
+
+Run the test for Savings Account with transaction listing
+
 ```pwsh
 java .\src\BankAccountDriver.java savings
 ```
 
-Run the test for Savings Account with transaction listing 
+![Savings Account Transactions](/screenshots/savingsTx.png)
+
+Run the test for Savings Account with transaction listing
+
 ```pwsh
 java .\src\BankAccountDriver.java interest
 ```
 
-Run the test for Savings Account with transaction listing 
+![Savings and Interest](/screenshots/interestTx.png)
+
+Run the test for Savings Account with transaction listing
+
 ```pwsh
 java .\src\BankAccountDriver.java check
 ```
 
-Run the test for Savings Account with transaction listing 
+![Checking Account Transactions](/screenshots/checkingTx.png)
+
+Run the test for Savings Account with transaction listing
+
 ```pwsh
 java .\src\BankAccountDriver.java compare
 ```
 
+![Account Comparison](/screenshots/interestTx.png)
 
+Run all commands
 
-
-
-Run all commands 
 ```pwsh
 .\runme.cmd
 ```
 
-## Example session 
+Screenshots of sample runs are available in the `screenshots/` folder.
+
+## Example session
 
 - Create an account (checking or savings).
 - Deposit money.
 - Withdraw money (overdraft behavior depends on `Checking` implementation).
 - Print transaction history for an account.
-
-Screenshots of sample runs are available in the `screenshots/` folder.
-
-![Sample output with out arguments ](/screenshots/sample.png)
-
-![Checking Account Transactions](/screenshots/checkingTx.png)
-
-![Savings Account Transactions](/screenshots/savingsTx.png)
-
-![Savings and Interest](/screenshots/interestTx.png)
-
 
 ## Requirements
 
