@@ -18,12 +18,13 @@ public class Checking extends BankAccount {
   private static final String UNKNOWN_DATE = "****-**-**";
 
   /**
-   * Constructs checking account with initial balance.
+   * Constructs checking account with initial balance and default account type.
    * 
    * @param balance the starting balance
    */
   public Checking(double balance) {
     super(balance);
+    setAccountType("Checking");
   }
 
   /**
@@ -72,7 +73,6 @@ public class Checking extends BankAccount {
    */
   @Override
   public void display() {
-    this.setAccountType("Checking");
     out.println(this);
   }
 }

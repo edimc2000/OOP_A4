@@ -22,6 +22,29 @@ public abstract class BankAccount {
     public abstract void display();
 
     /**
+     * Account type identifier (e.g., "Savings", "Checking")
+     */
+    private String accountType;
+
+    /**
+     * Sets the account type.
+     * 
+     * @param accountType the type of account (e.g., "Savings", "Checking")
+     */
+    public void setAccountType(String accountType) {
+        this.accountType = accountType;
+    }
+
+    /**
+     * Gets the account type.
+     * 
+     * @return the account type (e.g., "Savings", "Checking")
+     */
+    public String getAccountType() {
+        return this.accountType;
+    }
+
+    /**
      * Withdraws amount from account
      * 
      * @param amount the amount to withdraw
@@ -152,29 +175,6 @@ public abstract class BankAccount {
             out.println(lineItem);
         }
         out.println("\n");
-    }
-
-    /**
-     * Account type identifier (e.g., "Savings", "Checking")
-     */
-    private String accountType;
-
-    /**
-     * Sets the account type.
-     * 
-     * @param accountType the type of account (e.g., "Savings", "Checking")
-     */
-    public void setAccountType(String accountType) {
-        this.accountType = accountType;
-    }
-
-    /**
-     * Gets the account type.
-     * 
-     * @return the account type (e.g., "Savings", "Checking")
-     */
-    public String getAccountType() {
-        return this.accountType;
     }
 
     /**

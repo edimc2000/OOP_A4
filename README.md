@@ -47,6 +47,36 @@ There is also a `screenshots/` folder included with example program output.
 
 From the project root (the folder that contains `src/` and `shared/`), run:
 
+Run the sample 
+```pwsh
+java .\src\BankAccountDriver.java 
+```
+
+Run the test for Savings Account with transaction listing 
+```pwsh
+java .\src\BankAccountDriver.java savings
+```
+
+Run the test for Savings Account with transaction listing 
+```pwsh
+java .\src\BankAccountDriver.java interest
+```
+
+Run the test for Savings Account with transaction listing 
+```pwsh
+java .\src\BankAccountDriver.java check
+```
+
+Run the test for Savings Account with transaction listing 
+```pwsh
+java .\src\BankAccountDriver.java compare
+```
+
+
+
+
+
+Run all commands 
 ```pwsh
 .\runme.cmd
 ```

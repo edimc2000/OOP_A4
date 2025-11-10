@@ -15,7 +15,7 @@ public class Savings extends BankAccount {
     private double intRate = 0.0;
 
     /**
-     * Constructs savings account with balance and interest rate.
+     * Constructs savings account with balance and interest rate and default account type..
      * 
      * @param balance      the starting balance
      * @param interestRate the annual interest rate
@@ -23,6 +23,7 @@ public class Savings extends BankAccount {
     public Savings(double balance, double interestRate) {
         super(balance);
         setIntRate(interestRate);
+        setAccountType("Savings");
     }
 
     /**
@@ -78,7 +79,6 @@ public class Savings extends BankAccount {
      */
     @Override
     public void display() {
-        this.setAccountType("Savings");
         out.println(this);
     }
 }

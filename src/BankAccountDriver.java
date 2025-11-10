@@ -44,6 +44,10 @@ public class BankAccountDriver {
                     checkTransactions();
                     break;
 
+                case "compare":
+                    compareAccounts();
+                    break;
+
                 default:
                     out.println("invalid parameter");
 
@@ -142,10 +146,42 @@ public class BankAccountDriver {
         BankAccount.displayTransactions(account1.getTransactions());
     }
 
+    /** Tests equality of two accounts account with check writing functionality. */
+    public static void compareAccounts() {
+        clearScreenIfNeeded();
+
+        out.println("Test Case: Comparing two accounts for equality  ");
+        Checking checking1 = new Checking(1000);
+        Checking checking3 = new Checking(800);
+
+        Savings savings1 = new Savings(1000, 0.01);
+        Savings savings2 = new Savings(1000, 0.01);
+        Savings savings3 = new Savings(999, 0.01);
+
+        compareEquality(savings1, checking1, "Testing for equality - two different account types, same balance");
+        compareEquality(savings1, checking3, "Testing for equality - two different account types, different balances");
+        compareEquality(savings1, savings2, "Testing for equality - two accounts, same type, same balance amount");
+        compareEquality(savings1, savings3, "Testing for equality - two accounts, same type, different balances");
+        
+    }
+
     /** Clears screen if enabled by isClearScreen flag. */
     private static void clearScreenIfNeeded() {
         if (isClearScreen) {
             Helper.clearScreen();
         }
+    }
+
+    /** Equality testing */
+    private static void compareEquality(BankAccount acct1, BankAccount acct2, String testDescription) {
+        out.println("\n" + testDescription);
+        out.println(String.format(" Account 1 Type : %s \tBalance : %s \n Account 2 Type : %s \tBalance : %s ",
+                acct1.getAccountType(),
+                Helper.formatCurrency(acct1.getBalance(), 1),
+                acct2.getAccountType(),
+                Helper.formatCurrency(acct2.getBalance(), 1)));
+        out.println(String.format(" Account 1 equals Account 2 ? : %s",
+                acct1.equals(acct2)));
+        out.println();
     }
 }
